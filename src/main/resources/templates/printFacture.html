@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Impression Facture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Facture: <span th:text="${facturation.referance}"></span></h2>
+        <p><strong>Date de création:</strong> <span th:text="${facturation.dateCreation}"></span></p>
+        <p><strong>Client:</strong> <span th:text="${facturation.client.nom}"></span></p>
+        <p><strong>Boutique:</strong> <span th:text="${facturation.livraison.boutique.nom}"></span></p>
+        <h3>Articles</h3>
+       
+        <p><strong>Total HT:</strong> <span th:text="${facturation.livraison.totalHT}"></span></p>
+        <p><strong>Total TTC:</strong> <span th:text="${facturation.livraison.totalTTC}"></span></p>
+          <p><strong>Prix totale:</strong> <span th:text="${facturation.prixTotal}"></span></p>
+          <p><strong>Prix Restant:</strong> <span th:text="${facturation.prixRestant}"></span></p>
+    </div>
+</body>
+</html>
+

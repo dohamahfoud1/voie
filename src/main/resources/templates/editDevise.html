@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devises</title>
+ 
+ 
+ 
+ 
+ 
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet"> 
+    <link href="navbar-top.css" rel="stylesheet">
+     <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        .registration-form{
+	padding: 80px 0;
+}
+
+.registration-form form{
+    background-color: #fff;
+   width:100%;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .form-icon{
+	text-align: center;
+ 
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 50px;
+    line-height: 100px;
+}
+
+.registration-form .item{
+	border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    
+}
+
+.registration-form .create-account{
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+ 
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+
+    </style>
+</head>
+<body>
+			  <header id="header" class="fixed-top">
+  <div class="container  d-flex align-items-center" style="margin-right:30%">
+    <a href="" class="logo me-auto">ADMIN</a>
+      <nav id="navbar"class=" navbar order-last order-lg-0">
+              <ul>
+			 <li class="dropdown"><a href="#"><span>Paramétres</span> <i class="bi bi-chevron-down"></i></a>
+             <ul>
+              <li><a href="/gestionProfils">Gestion des profils</a></li>
+              <li><a href="/gestionUsers">Gestion des utilisateurs</a></li>
+              <li><a href="/societe">société</a></li>
+              <li><a href="/cloturerExercice">clôturer les exercices</a></li>
+              <li><a href="/banque">Banques</a></li>
+              <li><a href="/compteBancaire">Comptes bancaires</a></li>
+              <li><a href="/modepaiement">Modes paiement</a></li>
+              <li><a href="/listeDevises">Devises</a></li>
+            </ul>
+          </li>
+            <li class="dropdown"><a href="#"><span>Boutiques</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/boutique">Ajouter Boutique</a></li>
+              <li><a href="/listeBoutiques">Consulter boutiques</a></li>
+            </ul>
+          </li>
+             <li class="dropdown"><a href="#"><span>Clients</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			 
+              <li><a href="/client">Ajouter Client</a></li>
+              <li><a href="">Consultation clients</a></li>
+        
+            </ul>
+          </li>
+                 <li class="dropdown"><a href="#"><span>Arcticles</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/tva">Paramétres article</a></li>
+              <li><a href="">Importer fichier article</a></li>
+              <li><a href="/article">Ajouter Article</a></li>
+              <li><a href="listeArticles">Consultation Article</a></li>
+              <li><a href="">Fusionner deux artciles</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span> Achats</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <li><a href="salarie.php">Commandes</a></li>
+              <li><a href="creationcompte.php">Livraison</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Ventes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createDevis">Devis</a></li>
+              <li><a href="">Commande vente</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Production</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="">Salariés</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Internes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="">Démarques</a></li>
+
+            </ul>
+          </li>
+
+          <li><a href="reunion_rh.php">Statistiques</a></li>
+          <li class="dropdown"><a href="#"><span>Etats</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="annonce_public.php">Etat de stock global</a></li>
+            </ul>
+          </li>
+
+
+          <a href="deconnexion.php"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" style="float:left; margin-left:3%;" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+  <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z"/>
+</svg></a>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+      </nav>
+
+    </div>
+  </header>
+  <div class="container">
+        <div class="registration-form" style="margin-top: 4%;">
+        <form  method="post" th:action="@{/save}" >
+			 <input type="hidden" th:field="${devise.id}" />
+			<div class="row">
+            <div class="container-fluid ">  
+                  <h2 style="font-weight: bold;display:flex;justify-content: center;">Modifier devise</h2>
+            </div>
+           </div>
+    <div class="row container" >
+ 
+    <div class="col-md-6">
+		
+		 <div class="form-group">
+                        <input type="text" name="nom" th:field="${devise.nom}" th:errorClass="is-invalid" class="form-control item"  placeholder="Devise">
+                        <p th:if="${#fields.hasErrors('devise.nom')}" th:errors="*{nom}" class="invalid-feedback"></p>   
+                    </div>
+		
+	</div>
+	<div class="col-md-6">
+		  <div class="form-group">
+                        <input type="text" name="taux"  th:field="${devise.taux}" th:errorClass="is-invalid" class="form-control item"  placeholder="Taux de change">
+                   <p th:if="${#fields.hasErrors('devise.taux')}" th:errors="*{taux}" class="invalid-feedback"></p>   
+                    </div>
+     
+	</div>
+	
+	
+ 
+    </div>
+                   
+         
+   
+  
+<div class="row">
+    <div class="form-group " >
+        <input style="background-color: rgb(9, 67, 137);color: white; " type="submit" class="btn btn-block create-account" value="Enregistrer">
+         <a href="/listeDevises" style="text-decoration: none; background-color: red;color: white; "  class="btn btn-block create-account" >Retour</a>
+      </div>
+</div>
+
+    </div>
+    
+    </div>
+   
+</form>
+
+    </div>
+</div>
+
+</body>
+</html>

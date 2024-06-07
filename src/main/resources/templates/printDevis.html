@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Impression Devis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Devis: <span th:text="${devis.referance}"></span></h2>
+        <p><strong>Date de création:</strong> <span th:text="${devis.dateCreation}"></span></p>
+        <p><strong>Client:</strong> <span th:text="${devis.client.nom}"></span></p>
+        <p><strong>Boutique:</strong> <span th:text="${devis.boutique.nom}"></span></p>
+        <h3>Articles</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Désignation</th>
+                    <th>Quantité</th>
+                    <th>Prix HT</th>
+                    <th>Prix TTC</th>
+                </tr>
+            </thead>
+            <tbody th:each="ligne : ${lignes}">
+                <tr>
+                    <td th:text="${ligne.article.designation}"></td>
+                    <td th:text="${ligne.quantite}"></td>
+                    <td th:text="${ligne.article.prixVenteHT}"></td>
+                    <td th:text="${ligne.article.prixVenteTTC}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Total HT:</strong> <span th:text="${devis.totalHT}"></span></p>
+        <p><strong>Total TTC:</strong> <span th:text="${devis.totalTTC}"></span></p>
+    </div>
+</body>
+</html>
+

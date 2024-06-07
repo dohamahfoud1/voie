@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<style>
+			.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+.lignecolor{
+  background: white;
+  text-align: center;
+}
+.tablecolor{
+  background:  #007ba1;
+  color: white;
+  font-weight: bold;
+  font-family:serif;
+  padding: 12px 15px;
+  text-align: center;
+}
+.tablecontent{
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  width: 100%;
+  height: 100%;
+}
+.pagination {
+  display: inline-block;
+}
+.pagination a {
+  color: green;
+  background-color: white;
+  float: left;
+  margin-top: 20%;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 30px 30px 30px 30px;
+  
+  
+  
+}
+
+		</style>
+		
+		
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet"> 
+    <link href="navbar-top.css" rel="stylesheet">
+     <link href="assets/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+ <header id="header" class="fixed-top">
+    <div class="container  d-flex align-items-center" style="margin-right:30%">
+    <a href="" class="logo me-auto">ADMIN</a>
+      <nav id="navbar"class=" navbar order-last order-lg-0">
+              <ul>
+			 <li class="dropdown"><a href="#"><span>Paramétres</span> <i class="bi bi-chevron-down"></i></a>
+             <ul>
+              <li><a href="/gestionProfils">Gestion des profils</a></li>
+              <li><a href="/gestionUsers">Gestion des utilisateurs</a></li>
+              <li><a href="/societe">société</a></li>
+              <li><a href="/cloturerExercice">clôturer les exercices</a></li>
+              <li><a href="/banque">Banques</a></li>
+              <li><a href="/compteBancaire">Comptes bancaires</a></li>
+              <li><a href="/modepaiement">Modes paiement</a></li>
+              <li><a href="/listeDevises">Devises</a></li>
+            </ul>
+          </li>
+            <li class="dropdown"><a href="#"><span>Boutiques</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/boutique">Ajouter Boutique</a></li>
+              <li><a href="/listeBoutiques">Consulter boutiques</a></li>
+            </ul>
+          </li>
+             <li class="dropdown"><a href="#"><span>Clients</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			 
+              <li><a href="/client">Ajouter Client</a></li>
+              <li><a href="">Consultation clients</a></li>
+        
+            </ul>
+          </li>
+                 <li class="dropdown"><a href="#"><span>Arcticles</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/tva">Paramétres article</a></li>
+              <li><a href="">Importer fichier article</a></li>
+              <li><a href="/article">Ajouter Article</a></li>
+              <li><a href="listeArticles">Consultation Article</a></li>
+              <li><a href="">Fusionner deux artciles</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span> Achats</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <li><a href="salarie.php">Commandes</a></li>
+              <li><a href="creationcompte.php">Livraison</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Ventes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createDevis">Devis</a></li>
+              <li><a href="">Commande vente</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Production</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="">Salariés</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Internes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="">Démarques</a></li>
+
+            </ul>
+          </li>
+
+          <li><a href="reunion_rh.php">Statistiques</a></li>
+          <li class="dropdown"><a href="#"><span>Etats</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="annonce_public.php">Etat de stock global</a></li>
+            </ul>
+          </li>
+
+
+          <a href="deconnexion.php"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" style="float:left; margin-left:3%;" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+  <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z"/>
+</svg></a>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+<div class="container" style="margin-top:7%;">
+  <body class="panel panel-success ">
+  <div class="panel-body">
+
+    <div class="container">
+      <div class="row mt-5" >
+        <div class="col-md-10">
+       <form id="searchForm" action="/gestionProfils" method="get" style="width: 50%;">
+            <div class="input-group  " >
+        <input type="text" name="search" class="form-control rounded" placeholder="Chercher une boutique" />
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Rechercher</button>
+        </div>
+
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+     <form method="get" action="" style="margin-top:5%;">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <div class="card shadow-sm">
+                    <div class="card-header" style="font-weight: bold; justify-content: center; text-align: center; background-color: #f8f9fa; color: black; font-size: large;">
+                     Liste des Boutiques
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead class="thead-dark container">
+                                <tr>
+                                    <th>Boutique</th>
+                                    <th>Site web</th>
+                                    <th>Téléphone</th>
+                                    <th>Email</th>
+                                    <th>Adresse</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  th:each="boutique : ${boutiques}">
+                                    <td  th:text="${boutique.nom}"></td>
+                                    <td  th:text="${boutique.site}"></td>
+                                    <td  th:text="${boutique.telephone}"></td>
+                                    <td  th:text="${boutique.email}"></td>
+                                    <td  th:text="${boutique.adresse}"></td>
+                                    <td>
+							         <a  th:href="@{/boutiques(boutiqueId=${boutique.id})}"><i style="color: forestgreen;" class="material-icons" data-toggle="tooltip" title="see">visibility</i></a>
+                                        <a href=""><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                        <a onclick="return confirm('Etes vous sûr de vouloir de supprimer ce boutique')" href=""><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+      
+      
+            </div>
+        </div>
+    </form>
+    </div>
+
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JavaScript pour afficher le pop-up lorsque le bouton est cliqué -->
+
+
+
+
+	</body>
+</html>

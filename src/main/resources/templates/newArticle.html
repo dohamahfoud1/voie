@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+         
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet"> 
+    <link href="navbar-top.css" rel="stylesheet">
+     <link href="assets/css/style.css" rel="stylesheet">
+        <style>
+
+			
+   #layoutSidenav {
+            height: 100vh;
+         
+        }
+        .sb-sidenav {
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+               background-color: rgb(247, 247, 225);
+        }
+        .sb-sidenav-menu-heading {
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            color: #6c757d;
+        }
+        .nav-link {
+            padding: 10px 20px;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .nav-link:hover {
+            background-color: #f8f9fa;
+            color: #007bff;
+        }
+        .sb-nav-link-icon {
+            margin-right: 10px;
+        }
+         .active{
+			 background-color: #f8f9fa;
+			 color: #007bff;
+		}
+    </style>
+    
+    </head>
+    <body class="sb-nav-fixed">
+ <header id="header" class="fixed-top">
+   <div class="container  d-flex align-items-center" style="margin-right:30%">
+    <a href="" class="logo me-auto">ADMIN</a>
+      <nav id="navbar"class=" navbar order-last order-lg-0">
+              <ul>
+			 <li class="dropdown"><a href="#"><span>Paramétres</span> <i class="bi bi-chevron-down"></i></a>
+             <ul>
+              <li><a href="/gestionProfils">Gestion des profils</a></li>
+              <li><a href="/gestionUsers">Gestion des utilisateurs</a></li>
+              <li><a href="/societe">société</a></li>
+              <li><a href="/cloturerExercice">clôturer les exercices</a></li>
+              <li><a href="/banque">Banques</a></li>
+              <li><a href="/compteBancaire">Comptes bancaires</a></li>
+              <li><a href="/modepaiement">Modes paiement</a></li>
+              <li><a href="/listeDevises">Devises</a></li>
+            </ul>
+          </li>
+            <li class="dropdown"><a href="#"><span>Boutiques</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/boutique">Ajouter Boutique</a></li>
+              <li><a href="/listeBoutiques">Consulter boutiques</a></li>
+            </ul>
+          </li>
+             <li class="dropdown"><a href="#"><span>Clients</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			 
+              <li><a href="/client">Ajouter Client</a></li>
+              <li><a href="">Consultation clients</a></li>
+        
+            </ul>
+          </li>
+                 <li class="dropdown"><a href="#"><span>Arcticles</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/tva">Paramétres article</a></li>
+              <li><a href="">Importer fichier article</a></li>
+              <li><a href="/article">Ajouter Article</a></li>
+              <li><a href="listeArticles">Consultation Article</a></li>
+              <li><a href="">Fusionner deux artciles</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span> Achats</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <li><a href="salarie.php">Commandes</a></li>
+              <li><a href="creationcompte.php">Livraison</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Ventes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createDevis">Devis</a></li>
+              <li><a href="">Commande vente</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Production</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="">Salariés</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Internes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="">Démarques</a></li>
+
+            </ul>
+          </li>
+
+          <li><a href="reunion_rh.php">Statistiques</a></li>
+          <li class="dropdown"><a href="#"><span>Etats</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="annonce_public.php">Etat de stock global</a></li>
+            </ul>
+          </li>
+
+
+          <a href="deconnexion.php"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" style="float:left; margin-left:3%;" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+  <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z"/>
+</svg></a>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+      </nav>
+
+    </div>
+  </header>
+        <div id="layoutSidenav">
+            <div style="margin-top: 6%;" id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading" style="margin-top: -10%;">Paramètres articles</div>
+                             <a class="nav-link" href="#article">
+                                <div  class=" sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Ajouter Article
+                            </a>
+                     <a class="nav-link" href="#tarifsArticle">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Tarifs
+                            </a>
+                            <a class="nav-link" href="#stockArticle">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Stock
+                            </a>
+                            <a class="nav-link" href="#pesageArticle">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Pesage
+                            </a>
+                            <a class="nav-link" href="#classementArticle">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Classemeent
+                            </a>
+                        </div>
+                    </div>
+                    
+                        
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+             <main>
+    <div class="container-fluid px-4">
+        <div id="article" class="card container" style="width: 80%; margin-bottom: 2%; margin-top: 5%;">
+            <div class="card-header">Créer un code barre</div>
+            <div class="card-body">
+                <form method="post" action="/generateBarcode">
+                    <div class="mb-3">
+                        <label for="prefix" class="form-label">Préfixe du Code-barres (3 chiffres)</label>
+                        <input type="text" class="form-control" id="prefix" name="prefix" pattern="\d{3}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Générer le Code-barres</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card container" style="width: 80%;">
+            <div id="article" class="card-header">Identification</div>
+            <div class="card-body">
+                <form method="post" action="/article" th:object="${article}" th:action="@{/article}">
+                    <div class="mb-3">
+                        <label for="designation" class="form-label">Désignation</label>
+                        <input type="text" class="form-control" id="designation" name="designation" th:field="*{designation}" required>
+                        <div th:if="${#fields.hasErrors('designation')}" class="text-danger" th:errors="*{designation}">Erreur</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="codeBarre" class="form-label">Code-barres</label>
+                        <input type="text" class="form-control" id="codeBarre" name="codeBarre" th:field="*{codeBarre}" readonly>
+                        <div th:if="${#fields.hasErrors('codeBarre')}" class="text-danger" th:errors="*{codeBarre}">Erreur</div>
+                    </div>
+                     <div class="mb-3">
+            <label for="barcodeImage" class="form-label">Image du Code-barres</label>
+            <div th:if="${article.barcodeImage != null}">
+                <img th:src="'data:image/png;base64,' + ${article.getBarcodeImageBase64()}" alt="Code-barres">
+            </div>
+        </div>
+        
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="categorie" class="form-label">Catégorie</label>
+                                <select class="form-select" id="categorie" name="categorie.id" th:field="*{categorie.id}">
+                                    <option th:each="categorie : ${categories}" th:value="${categorie.id}" th:text="${categorie.nom}"></option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="couleur" class="form-label">Couleur</label>
+                                <select class="form-select" id="couleur" name="couleur.id" th:field="*{couleur.id}">
+                                    <option th:each="couleur : ${couleurs}" th:value="${couleur.id}" th:text="${couleur.couleur}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="marque" class="form-label">Marque</label>
+                                <select class="form-select" id="marque" name="marque.id" th:field="*{marque.id}">
+                                    <option th:each="marque : ${marques}" th:value="${marque.id}" th:text="${marque.marque}"></option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="taille" class="form-label">Taille</label>
+                                <select class="form-select" id="taille" name="taille.id" th:field="*{taille.id}">
+                                    <option th:each="taille : ${tailles}" th:value="${taille.id}" th:text="${taille.taille}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tarifsArticle" class="card container" style=" margin-top: 2%;">
+                        <div class="card-header">Prix</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="prixAchatHT" class="form-label">Prix Achat (HT)</label>
+                                        <input type="number" step="0.01" class="form-control" id="prixAchatHT" name="prixAchatHT" th:field="*{prixAchatHT}" required>
+                                        <div th:if="${#fields.hasErrors('prixAchatHT')}" class="text-danger" th:errors="*{prixAchatHT}">Erreur</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="tva1" class="form-label">TVA 1</label>
+                                        <select class="form-select" id="tva1" name="tva1" th:field="*{tva1}">
+                                            <option th:each="tva : ${tvas}" th:value="${tva.id}" th:text="${tva.tva}"></option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="prixAchatTTC" class="form-label">Prix Achat (TTC)</label>
+                                        <input type="number" step="0.01" class="form-control" id="prixAchatTTC" name="prixAchatTTC" th:field="*{prixAchatTTC}" required>
+                                        <div th:if="${#fields.hasErrors('prixAchatTTC')}" class="text-danger" th:errors="*{prixAchatTTC}">Erreur</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="prixVenteHT" class="form-label">Prix Vente (HT)</label>
+                                        <input type="number" step="0.01" class="form-control" id="prixVenteHT" name="prixVenteHT" th:field="*{prixVenteHT}" required>
+                                        <div th:if="${#fields.hasErrors('prixVenteHT')}" class="text-danger" th:errors="*{prixVenteHT}">Erreur</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="tva2" class="form-label">TVA 2</label>
+                                        <select class="form-select" id="tva2" name="tva2" th:field="*{tva2}">
+                                            <option th:each="tva : ${tvas}" th:value="${tva.id}" th:text="${tva.tva}"></option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="prixVenteTTC" class="form-label">Prix Vente (TTC)</label>
+                                        <input type="number" step="0.01" class="form-control" id="prixVenteTTC" name="prixVenteTTC" th:field="*{prixVenteTTC}" required>
+                                        <div th:if="${#fields.hasErrors('prixVenteTTC')}" class="text-danger" th:errors="*{prixVenteTTC}">Erreur</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="stockArticle" class="card container" style=" margin-top: 2%;">
+                        <div class="card-header">Stock</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="stockable" class="form-label">Stockable</label>
+                                        <select class="form-select" id="stockable" name="stockable" th:field="*{stockable}">
+                                            <option value="true">Oui</option>
+                                            <option value="false">Non</option>
+                                        </select>
+                                    </div>
+                                   
+                                    <div class="mb-3">
+                                        <label for="maximale" class="form-label">Stock Maximale</label>
+                                        <input type="number" class="form-control" id="maximale" name="maximale" th:field="*{maximale}" >
+                                    </div>
+                                  
+                                </div>
+                                <div class="col-md-6">
+                                     <div class="mb-3">
+                                        <label for="minimale" class="form-label">Stock Minimale</label>
+                                        <input type="number" class="form-control" id="minimale" name="minimale" th:field="*{minimale}" >
+                                    </div>
+                                   
+                                    <div class="mb-3">
+                                        <label for="stockTotale" class="form-label">Stock Total</label>
+                                        <input type="number" class="form-control" id="stockTotale" name="stockTotale" th:field="*{stockTotale}" >
+                                        
+                                    </div>
+                                </div>
+                                
+                                 <div class="container">
+									 <h5>Stock initial pour chaque boutique</h5>
+            <table  class="table" style="margin-top: 3%">
+              <thead class="thead-light">
+              <tr>
+                <th>Boutique</th>
+                <th>Stock</th>
+              </tr>
+              </thead>
+              <tbody th:each="boutique : ${boutiques}">
+              <tr>
+                <td th:text="${boutique.nom}"> </td>
+               <td><input class="form-control" type="number" name="stock" th:attr="name=|stock_${boutique.id}|" placeholder="Stock" /></td>
+              </tr>
+              </tbody>
+            </table>
+            
+
+          </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                        <div id="pesageArticle" class="card container" style=" margin-top: 2%;">
+                        <div class="card-header">Pesage</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                   
+                                    <div class="mb-3">
+                                        <label for="pesable" class="form-label">Pesable</label>
+                                        <select class="form-select" id="pesable" name="pesable" th:field="*{pesable}">
+                                            <option value="true">Oui</option>
+                                            <option value="false">Non</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    
+                                   <div class="mb-3">
+                                        <label for="plu" class="form-label">PLU</label>
+                                        <input type="text" class="form-control" id="plu" name="plu" th:field="*{plu}" >
+                                     
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                     
+                        </div>
+                    </div>
+                    
+                    
+                              <div id="classementArticle" class="card container" style=" margin-top: 2%;">
+                        <div class="card-header">Classement</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                   
+                                   <div class="mb-3">
+                                        <label for="secteur" class="form-label">Secteur</label>
+                                        <select class="form-select" id="secteur" name="secteur.id" th:field="*{secteur.id}">
+                                            <option th:each="secteur : ${secteurs}" th:value="${secteur.id}" th:text="${secteur.secteur}"></option>
+                                        </select>
+                                    </div>
+                                    
+                                     <div class="mb-3">
+                                        <label for="rayon" class="form-label">Rayon</label>
+                                        <select class="form-select" id="rayon" name="rayon.id" th:field="*{rayon.id}">
+                                            <option th:each="rayon : ${rayons}" th:value="${rayon.id}" th:text="${rayon.rayon}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    
+                                   <div class="mb-3">
+                                        <label for="famille" class="form-label">Famille</label>
+                                        <select class="form-select" id="famille" name="famille.id" th:field="*{famille.id}">
+                                            <option th:each="famille : ${familles}" th:value="${famille.id}" th:text="${famille.famille}"></option>
+                                        </select>
+                                    </div>
+                                   
+                                    <div class="mb-3">
+                                        <label for="segment" class="form-label">Segment</label>
+                                        <input type="text" class="form-control" id="segment" name="segment" th:field="*{segment}" >
+                                    </div>
+                                    
+             
+                                   
+                                </div>
+                          
+      
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+ 
+    </div>
+</main>
+                
+                
+                
+                
+           <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionnez tous les éléments du menu
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Ajoutez un écouteur d'événement de clic à chaque lien
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Retirez la classe active de tous les liens
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                // Ajoutez la classe active au lien cliqué
+                this.classList.add('active');
+            });
+        });
+
+        // Ajoutez un écouteur d'événement pour détecter les ancres dans l'URL et ajuster la classe active
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash;
+
+            // Retirez la classe active de tous les liens
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Ajoutez la classe active au lien correspondant à l'ancre
+            const activeLink = document.querySelector(`a[href="${hash}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        });
+
+        // Déclenchez une vérification initiale au chargement de la page
+        const initialHash = window.location.hash;
+        if (initialHash) {
+            const initialActiveLink = document.querySelector(`a[href="${initialHash}"]`);
+            if (initialActiveLink) {
+                initialActiveLink.classList.add('active');
+            }
+        }
+    });
+    
+    
+      document.addEventListener('DOMContentLoaded', function() {
+        const stockableCheckbox = document.getElementById('stockableCheckbox');
+        const stockableValueField = document.getElementById('stockableValue');
+
+        stockableCheckbox.addEventListener('change', function() {
+            if (stockableCheckbox.checked) {
+                stockableValueField.value = "1";
+            } else {
+                stockableValueField.value = "0";
+            }
+        });
+    });
+</script>     
+                
+                
+             
+                
+                
+                
+        
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+       
+        <script src="js/datatables-simple-demo.js"></script>
+
+
+    </body>
+</html>
+

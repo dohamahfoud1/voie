@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Devis</title>
+</head>
+<body>
+    <h1>Devis</h1>
+    <div th:if="${warning}">
+        <p th:text="${warning}" style="color: red;"></p>
+    </div>
+    <div>
+        <label>Numéro :</label>
+        <span th:text="${devis.numero}"></span>
+    </div>
+    <div>
+        <label>Date de création :</label>
+        <span th:text="${devis.dateCreation}"></span>
+    </div>
+    <div>
+        <label>Client :</label>
+        <span th:text="${devis.client.nom}"></span>
+    </div>
+    <div>
+        <label>Boutique :</label>
+        <span th:text="${devis.boutique.nom}"></span>
+    </div>
+    <div>
+        <label>Base de calcul :</label>
+        <span th:text="${devis.baseCalcul}"></span>
+    </div>
+    <div>
+        <label>Articles :</label>
+        <table>
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ligneDevis : ${devis.lignesDevis}">
+                    <td th:text="${ligneDevis.article.nom}"></td>
+                    <td th:text="${ligneDevis.quantite}"></td>
+                    <td th:text="${ligneDevis.article.prixHt}"></td> <!-- Adjust for HT/TTC as needed -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button onclick="window.print()">Imprimer</button>
+</body>
+</html>

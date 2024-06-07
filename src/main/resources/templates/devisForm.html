@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nouveau Devis</title>
+    <script>
+        // Initialise les options des articles avec Thymeleaf
+     document.addEventListener("DOMContentLoaded", function () {
+    // Fonction pour ajouter une ligne d'article
+    window.addArticleRow = function() {
+        let table = document.getElementById("articlesTable").querySelector("tbody");
+        let row = table.insertRow();
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
+
+        // Crée le select des articles
+        let articleSelect = document.createElement("select");
+        articleSelect.name = "articleIds";
+        articleSelect.classList.add("form-control");
+        articleSelect.required = true;
+
+        // Remplit les options du select avec les articles
+        let defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.text = "Sélectionnez un article";
+        articleSelect.appendChild(defaultOption);
+
+        // Ajoutez cette ligne pour récupérer les articles depuis le modèle Thymeleaf
+        let articles = /*[[${articles}]]*/ [];
+
+        articles.forEach(article => {
+            let option = document.createElement("option");
+            option.value = article.id;
+            option.text = article.designation;
+            articleSelect.appendChild(option);
+        });
+
+                cell1.appendChild(articleSelect);
+                cell2.innerHTML = '<input type="number" name="quantites" class="form-control" required>';
+                cell3.innerHTML = '<span class="prix"></span>';
+                cell4.innerHTML = '<button type="button" onclick="removeArticleRow(this)">Supprimer</button>';
+
+                cell2.querySelector("input").addEventListener("change", function () {
+                    let quantite = this.value;
+                    let articleId = articleSelect.value;
+                    updatePrice(articleId, quantite, cell3.querySelector(".prix"));
+                });
+
+                articleSelect.addEventListener("change", function () {
+                    let quantite = cell2.querySelector("input").value;
+                    let articleId = this.value;
+                    updatePrice(articleId, quantite, cell3.querySelector(".prix"));
+                });
+            }
+
+            // Fonction pour mettre à jour le prix
+            window.updatePrice = function(articleId, quantite, priceElement) {
+                fetch('/api/articles/' + articleId)
+                    .then(response => response.json())
+                    .then(article => {
+                        let prix = quantite * (document.querySelector('input[name="baseCalcul"]:checked').value === 'ht' ? article.prixHt : article.prixTtc);
+                        priceElement.innerText = prix.toFixed(2);
+                    });
+            }
+
+            // Fonction pour supprimer une ligne d'article
+            window.removeArticleRow = function(button) {
+                let row = button.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Nouveau Devis</h1>
+    <form th:action="@{/devis/save}" method="post">
+        <div>
+            <label>Client</label>
+            <select name="client.id" required>
+                <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.nom}"></option>
+            </select>
+        </div>
+        <div>
+            <label>Boutique</label>
+            <select name="boutique.id" required>
+                <option th:each="boutique : ${boutiques}" th:value="${boutique.id}" th:text="${boutique.nom}"></option>
+            </select>
+        </div>
+        <div>
+            <label>Base de calcul</label>
+            <input type="radio" name="baseCalcul" value="ht" checked> HT
+            <input type="radio" name="baseCalcul" value="ttc"> TTC
+        </div>
+        <div>
+            <label>Articles</label>
+            <table id="articlesTable">
+                <thead>
+                    <tr>
+                        <th>Article</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button type="button" onclick="addArticleRow()">Ajouter un article</button>
+        </div>
+        <button type="submit">Enregistrer</button>
+    </form>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        let articles = /*[[${articles}]]*/ [];
+        /*]]>*/
+    </script>
+</body>
+</html>
