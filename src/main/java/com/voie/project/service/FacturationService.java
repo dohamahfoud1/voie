@@ -9,11 +9,13 @@ import com.voie.project.repository.ClientRepository;
 import com.voie.project.repository.FacturationRepository;
 import com.voie.project.repository.LivraisonRepository;
 
-import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import javax.transaction.Transactional;
 @Service
 public class FacturationService {
 
@@ -66,24 +68,5 @@ public class FacturationService {
 	        return true;
 	    }
 
-	    @Transactional
-	    public boolean payerFacture(Long facturationId, BigDecimal montantPaye) {
-	        Facturation facturation = facturationRepository.findById(facturationId).orElse(null);
-	        if (facturation == null) {
-	            return false;
-	        }
 
-	        Client client = facturation.getClient();
-	        BigDecimal nouveauSolde = client.getSolde().subtract(montantPaye);
-	        client.setSolde(nouveauSolde);
-	        
-	        clientRepository.save(client);
-
-	        // Mise à jour du prix restant à payer sur la facture
-	        BigDecimal nouveauPrixRestant = facturation.getPrixRestant().subtract(montantPaye);
-	        facturation.setPrixRestant(nouveauPrixRestant);
-	        facturationRepository.save(facturation);
-
-	        return true;
-	    }
 }

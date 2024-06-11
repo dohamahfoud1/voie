@@ -21,11 +21,13 @@ import com.voie.project.repository.EntrepotRepository;
 import com.voie.project.repository.LigneDevisRepository;
 import com.voie.project.service.DevisService;
 
-import jakarta.servlet.http.HttpServletRequest;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 
 @Controller
 @RequestMapping("/")
@@ -132,6 +134,9 @@ public class DevisController {
 
         // Save Devis
         Devis savedDevis = devisRepo.save(devis);
+        String formattedIdDevis = String.format("%06d", savedDevis.getId());
+        savedDevis.setReferance(formattedIdDevis);
+        devisRepo.save(savedDevis);
 
         // Save LigneDevis
         for (Map.Entry<Long, Integer> entry : articleQuantities.entrySet()) {
@@ -209,7 +214,7 @@ public class DevisController {
         return "redirect:/listDevis";
     }
 
-    
+
     @GetMapping("/transfertCommande/{id}")
     public String transfertCommande(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         Devis devis = devisRepo.findById(id).orElse(null);

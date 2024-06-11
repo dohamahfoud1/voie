@@ -15,12 +15,14 @@ import com.voie.project.models.Livraison;
 import com.voie.project.models.Commande;
 import com.voie.project.models.Devis;
 import com.voie.project.models.Facturation;
+import com.voie.project.models.FacturesPayees;
 import com.voie.project.models.LigneCommande;
 import com.voie.project.models.LigneDevis;
 import com.voie.project.models.LigneLivraison;
 import com.voie.project.repository.CommandeRepository;
 import com.voie.project.repository.DevisRepository;
 import com.voie.project.repository.FacturationRepository;
+import com.voie.project.repository.FacturesPayeesRepository;
 import com.voie.project.repository.LigneCommandeRepository;
 import com.voie.project.repository.LigneDevisRepository;
 import com.voie.project.repository.LigneLivraisonRepository;
@@ -53,6 +55,8 @@ public class PdfController {
     
     @Autowired
     private FacturationRepository facturationRepo;
+    @Autowired
+    private FacturesPayeesRepository facturesPayeesRepo;
     
     
     @GetMapping("/printDevis/{id}/pdf")
@@ -133,6 +137,25 @@ public class PdfController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "inline; filename=facture_" + id + ".pdf");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(pdf.readAllBytes());
+    }
+    @GetMapping("/printFacturePayees/{id}/pdf")   
+    public ResponseEntity<byte[]> generatePdfFacturesPayees(@PathVariable Long id) {
+    	FacturesPayees facturesPayees = facturesPayeesRepo.findById(id).orElse(null);
+
+        if (facturesPayees == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+
+        ByteArrayInputStream pdf = pdfService.generatePdfFacturesPayees(facturesPayees); // Envoyer les lignes de devis également
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=facturesPayees_" + id + ".pdf");
 
         return ResponseEntity.ok()
                 .headers(headers)

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +30,6 @@ import com.voie.project.service.PermissionsService;
 import com.voie.project.service.ProfileService;
 import com.voie.project.service.SpecificPermissionsService;
 
-import jakarta.transaction.Transactional;
 
 @Controller
 @RequestMapping("/")
@@ -56,6 +57,7 @@ public class ProfilesController {
 	    @Autowired
 	    private specificPermissionRepository SpecPermsRepo;
 	
+	  
 	    @GetMapping("/gestionProfils")
 	    public String afficherProfiles(@RequestParam(required = false) String search, Model model) {
 	        List<Profiles> listeProfiles;
@@ -94,12 +96,10 @@ public class ProfilesController {
 		        return "redirect:/ajouterprofils";
 		    }
 		    @PostMapping("/saveProfile")
-		    public String saveProfile(@RequestParam("profileName") String name, 
-		    		@RequestParam("password") String pwd,
+		    public String saveProfile(@RequestParam("profileName") String name,
 		                              @RequestParam List<Long> id) {
 		        Profiles profile = new Profiles();
 		        profile.setProfileName(name);
-		        profile.setPassword(pwd);
 		        profileService.saveProfileWithPermissions(profile, id);
 		        return "redirect:/ajouterprofils";
 		    }
@@ -162,7 +162,6 @@ public class ProfilesController {
 		        
 		        // Mettre à jour les champs du profil existant avec les nouvelles valeurs
 		        existingProfile.setProfileName(profile.getProfileName());
-		        existingProfile.setPassword(profile.getPassword());
 		        
 		        // Sauvegarder les modifications apportées au profil existant
 		        profileRepo.save(existingProfile);

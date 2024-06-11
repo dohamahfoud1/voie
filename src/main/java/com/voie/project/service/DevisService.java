@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,6 @@ import com.voie.project.repository.DevisRepository;
 import com.voie.project.repository.LigneCommandeRepository;
 import com.voie.project.repository.LigneDevisRepository;
 
-import jakarta.transaction.Transactional;
 
 @Service
 public class DevisService {
@@ -54,7 +55,7 @@ public class DevisService {
         commande.setDateCreation(new Date()); // Date de création de la commande
         commande.setClient(devis.getClient());
         commande.setBoutique(devis.getBoutique());
-        commande.setReferance(devis.getReferance());
+        commande.setReferance(devis.getReferance()); // Assurez-vous que la référence est bien transférée
 
         // Transférer les totaux en fonction de la base de calcul
         if ("HT".equalsIgnoreCase(devis.getBaseCalcul())) {
@@ -82,5 +83,6 @@ public class DevisService {
 
         return true;
     }
+
 
 }

@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -50,6 +48,8 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/")
 public class ArticleController {

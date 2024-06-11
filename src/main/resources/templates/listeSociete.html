@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<style>
+			.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+.lignecolor{
+  background: white;
+  text-align: center;
+}
+.tablecolor{
+  background:  #007ba1;
+  color: white;
+  font-weight: bold;
+  font-family:serif;
+  padding: 12px 15px;
+  text-align: center;
+}
+.tablecontent{
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  width: 100%;
+  height: 100%;
+}
+.pagination {
+  display: inline-block;
+}
+.pagination a {
+  color: green;
+  background-color: white;
+  float: left;
+  margin-top: 20%;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 30px 30px 30px 30px;
+  
+  
+  
+}
+
+		</style>
+		
+		
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet"> 
+    <link href="navbar-top.css" rel="stylesheet">
+     <link href="assets/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+   <header id="header" class="fixed-top">
+  <div class="container  d-flex align-items-center" >
+    
+      <nav id="navbar"class=" navbar order-last order-lg-0">
+              <ul>
+				   
+				    <li class="dropdown"><a href="/admin"><span>Résumé</span> </a>
+				    <li class="dropdown"><a href="/profile"><span>Profile</span> </a></li>
+          
+          </li>
+			 <li class="dropdown"><a href="#"><span>Paramétres</span> <i class="bi bi-chevron-down"></i></a>
+             <ul>
+              <li><a href="/gestionProfils">Gestion des profils</a></li>
+              <li><a href="/gestionUsers">Gestion des utilisateurs</a></li>
+              <li><a href="/societe">société</a></li>
+              <li><a href="/cloturerExercice">clôturer les exercices</a></li>
+              <li><a href="/banque">Banques</a></li>
+              <li><a href="/compteBancaire">Comptes bancaires</a></li>
+              <li><a href="/modepaiement">Modes paiement</a></li>
+              <li><a href="/listeDevises">Devises</a></li>
+            </ul>
+          </li>
+            <li class="dropdown"><a href="#"><span>Boutiques</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/boutique">Ajouter Boutique</a></li>
+              <li><a href="/listeBoutiques">Consulter boutiques</a></li>
+            </ul>
+          </li>
+             <li class="dropdown"><a href="#"><span>Clients</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			 
+              <li><a href="/client">Ajouter Client</a></li>
+              <li><a href="/listClients">Consultation clients</a></li>
+        
+            </ul>
+          </li>
+                 <li class="dropdown"><a href="#"><span>Arcticles</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/tva">Paramétres article</a></li>
+              <li><a href="/article">Ajouter Article</a></li>
+              <li><a href="listeArticles">Consultation Article</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Devis</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createDevis">Ajouter un devis</a></li>
+              <li><a href="/listDevis"> Consultation devis</a></li>
+            </ul>
+          </li>
+             <li class="dropdown"><a href="#"><span>Commandes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createCommande">Ajouter une commande</a></li>
+              <li><a href="/listCommande"> Consultation commandes</a></li>
+            </ul>
+            
+          </li>
+              <li class="dropdown"><a href="#"><span>Livraison</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createLivraison">Ajouter une livraison</a></li>
+              <li><a href="/listLivraisons"> Consultation livraisons</a></li>
+            </ul>
+            
+          </li>
+          
+              <li class="dropdown"><a href="#"><span>Facturation</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createFacture">Ajouter une facture</a></li>
+              <li><a href="/listFactures"> Consultation factures</a></li>
+              <li><a href="/listFacturesPayees"> factures déja payées</a></li>
+            </ul>
+            
+          </li>
+        
+        
+
+        
+
+
+
+          <a href="deconnexion"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" style="float:left; margin-left:3%;" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+  <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z"/>
+</svg></a>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+      </nav>
+
+    </div>
+  </header>
+
+<div class="container" style="margin-top:7%;">
+  <body class="panel panel-success ">
+  <div class="panel-body">
+
+    <div class="container">
+      <div class="row mt-5" >
+        <div class="col-md-6">
+       <form id="searchForm" action="/gestionProfils" method="get">
+            <div class="input-group  " >
+        <input type="text" name="search" class="form-control rounded" placeholder="Chercher une societe" />
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Rechercher</button>
+        </div>
+
+            </div>
+          </form>
+        </div>
+      </div>      
+      
+             <div class="panel panel-primary" style="margin-top:5%;">
+            <div class="panel-body">
+                <div class="card shadow-sm">
+                    <div class="card-header" style="font-weight: bold; justify-content: center; text-align: center; background-color: #f8f9fa; color: black; font-size: large;">
+                    Liste des societes
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead style="background-color: black;color: white;" class="thead-dark container">
+                                <tr >
+                      <th style="text-align: center;" >Societe</th>
+                    <th style="text-align: center;" >ville</th>
+                    <th style="text-align: center;" >Adresse</th>
+                    <th style="text-align: center;" >Téléphone</th>
+                     <th style="text-align: center;" >Email</th>
+                      <th style="text-align: center;" >Devise</th>
+                      <th style="text-align: center;" >Cnss</th>
+                       <th style="text-align: center;" >Responsable</th>
+                    <th style="text-align: center;" >Action</th>
+                </tr>
+            </thead>
+                  <tbody  th:each="societe : ${societe}">
+              <tr class="lignecolor">
+                <td th:text="${societe.nom}"></td>
+                 <td th:text="${societe.ville}"></td>
+                 <td th:text="${societe.adresse}"></td>
+                 <td th:text="${societe.telephone}"></td>
+                 <td th:text="${societe.email}"></td>
+                 <td th:text="${societe.devise}"></td>
+                 <td th:text="${societe.cnss}"></td>
+                 <td th:text="${societe.responsable}"></td>
+                <td>
+                  <a th:href="@{/editSociete(SocieteId=${societe.id})}">
+    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+</a>              
+                <a th:href="@{/deleteSociete/{id}(id=${societe.id})}" onclick="return confirm('Etes vous sûr de vouloir de supprimer cette cociete')" ><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i><a/>
+                </td>
+              </tr>
+              </tbody>
+
+                        </table>
+           <a href="/societe" style="text-decoration: none; background-color: red;color: white;margin-top: 4%; "  class="btn btn-block create-account" >Retour</a>
+
+                    </div>
+                </div>
+      
+      
+            </div>
+        </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+
+  </div>
+
+
+
+
+	</body>
+</html>

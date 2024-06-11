@@ -69,11 +69,14 @@
      <link href="assets/css/style.css" rel="stylesheet">
 	</head>
 	<body>
- <header id="header" class="fixed-top">
-    <div class="container  d-flex align-items-center" style="margin-right:30%">
+  <header id="header" class="fixed-top">
+  <div class="container  d-flex align-items-center" style="margin-right:30%">
     <a href="" class="logo me-auto">ADMIN</a>
       <nav id="navbar"class=" navbar order-last order-lg-0">
               <ul>
+				   <li class="dropdown"><a href="/admin"><span>Résumé</span> <i class="bi bi-chevron-down"></i></a>
+          
+          </li>
 			 <li class="dropdown"><a href="#"><span>Paramétres</span> <i class="bi bi-chevron-down"></i></a>
              <ul>
               <li><a href="/gestionProfils">Gestion des profils</a></li>
@@ -96,53 +99,55 @@
          <ul>
 			 			 
               <li><a href="/client">Ajouter Client</a></li>
-              <li><a href="">Consultation clients</a></li>
+              <li><a href="/listClients">Consultation clients</a></li>
         
             </ul>
           </li>
                  <li class="dropdown"><a href="#"><span>Arcticles</span> <i class="bi bi-chevron-down"></i></a>
          <ul>
 			 			  <li><a href="/tva">Paramétres article</a></li>
-              <li><a href="">Importer fichier article</a></li>
               <li><a href="/article">Ajouter Article</a></li>
               <li><a href="listeArticles">Consultation Article</a></li>
-              <li><a href="">Fusionner deux artciles</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#"><span> Achats</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-            <li><a href="salarie.php">Commandes</a></li>
-              <li><a href="creationcompte.php">Livraison</a></li>
             </ul>
           </li>
 
-          <li class="dropdown"><a href="#"><span>Ventes</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Devis</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/createDevis">Devis</a></li>
-              <li><a href="">Commande vente</a></li>
+              <li><a href="/createDevis">Ajouter un devis</a></li>
+              <li><a href="/listDevis"> Consultation devis</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#"><span>Production</span> <i class="bi bi-chevron-down"></i></a>
+             <li class="dropdown"><a href="#"><span>Commandes</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="">Salariés</a></li>
+              <li><a href="/createCommande">Ajouter une commande</a></li>
+              <li><a href="/listCommande"> Consultation commandes</a></li>
             </ul>
+            
           </li>
-          <li class="dropdown"><a href="#"><span>Internes</span> <i class="bi bi-chevron-down"></i></a>
+              <li class="dropdown"><a href="#"><span>Livraison</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="">Démarques</a></li>
-
+              <li><a href="/createLivraison">Ajouter une livraison</a></li>
+              <li><a href="/listLivraisons"> Consultation livraisons</a></li>
             </ul>
+            
           </li>
-
-          <li><a href="reunion_rh.php">Statistiques</a></li>
-          <li class="dropdown"><a href="#"><span>Etats</span> <i class="bi bi-chevron-down"></i></a>
+          
+              <li class="dropdown"><a href="#"><span>Facturation</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="annonce_public.php">Etat de stock global</a></li>
+              <li><a href="/createFacture">Ajouter une facture</a></li>
+              <li><a href="/listFactures"> Consultation factures</a></li>
+              <li><a href="/listFacturesPayees"> factures déja payées</a></li>
             </ul>
+            
           </li>
+        
+        
+
+        
 
 
-          <a href="deconnexion.php"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" style="float:left; margin-left:3%;" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+
+          <a href="deconnexion"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" style="float:left; margin-left:3%;" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
   <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
   <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z"/>
 </svg></a>
@@ -154,7 +159,6 @@
 
     </div>
   </header>
-
 
 
 

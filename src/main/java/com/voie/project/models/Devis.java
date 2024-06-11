@@ -1,7 +1,20 @@
 package com.voie.project.models;
 
 
-import jakarta.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -190,11 +203,5 @@ public class Devis {
 
 
 
-	@PrePersist
-    public void generateReference() {
-        // Générer une référence avec six chiffres en fonction de l'ID généré automatiquement
-        String formattedId = String.format("%06d", id);
-        this.referance = formattedId;
-    }
-   
+	
 }

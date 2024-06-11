@@ -6,6 +6,7 @@ import com.itextpdf.tool.xml.XMLWorkerHelper;
 import com.voie.project.models.Commande;
 import com.voie.project.models.Devis;
 import com.voie.project.models.Facturation;
+import com.voie.project.models.FacturesPayees;
 import com.voie.project.models.LigneCommande;
 import com.voie.project.models.LigneDevis;
 import com.voie.project.models.LigneLivraison;
@@ -111,6 +112,30 @@ public class PdfService {
         context.setVariable("facturation", facturation);
 
         String htmlContent = templateEngine.process("printFacture", context);
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        try {
+            Document document = new Document();
+            PdfWriter writer = PdfWriter.getInstance(document, out);
+            document.open();
+            XMLWorkerHelper.getInstance().parseXHtml(writer, document, 
+                    new ByteArrayInputStream(htmlContent.getBytes(StandardCharsets.UTF_8)), 
+                    StandardCharsets.UTF_8);
+            document.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new ByteArrayInputStream(out.toByteArray());
+    }
+    
+    
+    public ByteArrayInputStream generatePdfFacturesPayees(FacturesPayees facturesPayees) {
+        Context context = new Context();
+        context.setVariable("facturesPayees", facturesPayees);
+
+        String htmlContent = templateEngine.process("printFacturePayees", context);
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 

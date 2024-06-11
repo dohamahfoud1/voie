@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+       <title layout:fragment="title">Profile</title>
+ 
+ 
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet"> 
+    <link href="navbar-top.css" rel="stylesheet">
+     <link href="assets/css/style.css" rel="stylesheet">
+     <style>
+body {
+    background-color: #f9f9fa
+}
+
+.padding {
+    padding: 6rem !important;
+   
+}
+
+.user-card-full {
+    overflow: hidden;
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border: none;
+    margin-bottom: 30px;
+}
+
+.m-r-0 {
+    margin-right: 0px;
+}
+
+.m-l-0 {
+    margin-left: 0px;
+}
+
+.user-card-full .user-profile {
+    border-radius: 5px 0 0 5px;
+}
+
+.bg-c-lite-green {
+        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+    background: linear-gradient(to right, #ee5a6f, #f29263);
+}
+
+.user-profile {
+    padding: 20px 0;
+}
+
+.card-block {
+    padding: 1.25rem;
+}
+
+.m-b-25 {
+    margin-bottom: 25px;
+}
+
+.img-radius {
+    border-radius: 5px;
+}
+
+
+ 
+h6 {
+    font-size: 14px;
+}
+
+.card .card-block p {
+    line-height: 25px;
+}
+
+@media only screen and (min-width: 1400px){
+p {
+    font-size: 14px;
+}
+}
+
+.card-block {
+    padding: 1.25rem;
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.card .card-block p {
+    line-height: 25px;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.text-muted {
+    color: #919aa3 !important;
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.f-w-600 {
+    font-weight: 600;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-t-40 {
+    margin-top: 20px;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
+
+.m-t-40 {
+    margin-top: 20px;
+}
+
+.user-card-full .social-link li {
+    display: inline-block;
+}
+
+.user-card-full .social-link li a {
+    font-size: 20px;
+    margin: 0 10px 0 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+	 </style>
+</head>
+<body>
+	
+	
+
+	  <header id="header" class="fixed-top">
+  <div class="container  d-flex align-items-center" >
+    
+      <nav id="navbar"class=" navbar order-last order-lg-0">
+              <ul>
+				   
+				    <li class="dropdown"><a href="/admin"><span>Résumé</span> </a>
+				    <li class="dropdown"><a href="/profile"><span>Profile</span> </a></li>
+          
+          </li>
+			 <li class="dropdown"><a href="#"><span>Paramétres</span> <i class="bi bi-chevron-down"></i></a>
+             <ul>
+              <li><a href="/gestionProfils">Gestion des profils</a></li>
+              <li><a href="/gestionUsers">Gestion des utilisateurs</a></li>
+              <li><a href="/societe">société</a></li>
+              <li><a href="/cloturerExercice">clôturer les exercices</a></li>
+              <li><a href="/banque">Banques</a></li>
+              <li><a href="/compteBancaire">Comptes bancaires</a></li>
+              <li><a href="/modepaiement">Modes paiement</a></li>
+              <li><a href="/listeDevises">Devises</a></li>
+            </ul>
+          </li>
+            <li class="dropdown"><a href="#"><span>Boutiques</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/boutique">Ajouter Boutique</a></li>
+              <li><a href="/listeBoutiques">Consulter boutiques</a></li>
+            </ul>
+          </li>
+             <li class="dropdown"><a href="#"><span>Clients</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			 
+              <li><a href="/client">Ajouter Client</a></li>
+              <li><a href="/listClients">Consultation clients</a></li>
+        
+            </ul>
+          </li>
+                 <li class="dropdown"><a href="#"><span>Arcticles</span> <i class="bi bi-chevron-down"></i></a>
+         <ul>
+			 			  <li><a href="/tva">Paramétres article</a></li>
+              <li><a href="/article">Ajouter Article</a></li>
+              <li><a href="listeArticles">Consultation Article</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Devis</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createDevis">Ajouter un devis</a></li>
+              <li><a href="/listDevis"> Consultation devis</a></li>
+            </ul>
+          </li>
+             <li class="dropdown"><a href="#"><span>Commandes</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createCommande">Ajouter une commande</a></li>
+              <li><a href="/listCommande"> Consultation commandes</a></li>
+            </ul>
+            
+          </li>
+              <li class="dropdown"><a href="#"><span>Livraison</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createLivraison">Ajouter une livraison</a></li>
+              <li><a href="/listLivraisons"> Consultation livraisons</a></li>
+            </ul>
+            
+          </li>
+          
+              <li class="dropdown"><a href="#"><span>Facturation</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/createFacture">Ajouter une facture</a></li>
+              <li><a href="/listFactures"> Consultation factures</a></li>
+              <li><a href="/listFacturesPayees"> factures déja payées</a></li>
+            </ul>
+            
+          </li>
+        
+        
+
+        
+
+
+
+          <a href="deconnexion"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" style="float:left; margin-left:3%;" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+  <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z"/>
+</svg></a>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+      </nav>
+
+    </div>
+  </header>
+ 
+ <div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center" style=" margin-top: 5%;">
+<div class=" col-md-12">
+                                                <div class="card user-card-full">
+                                                    <div class="row m-l-0 m-r-0">
+                                                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                                                            <div class="card-block text-center text-white">
+                                                                <div class="m-b-25">
+                                                                    <img src="./images/user.png" style="width: 50%;" class="img-radius" alt="User-Profile-Image">
+                                                                </div>
+                                                            <h6 class="f-w-600" th:text="${user.nom}"></h6>
+
+                                                                <p th:text="${user.profile.profileName}"></p>
+                                                                <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <div class="card-block">
+                                                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <p class="m-b-10 f-w-600">Adresse</p>
+                                                                        <h6 class="text-muted f-w-400" th:text="${user.adresse}"></h6>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <p class="m-b-10 f-w-600">Téléphone</p>
+                                                                        <h6 class="text-muted f-w-400" th:text="${user.telephone}"></h6>
+                                                                    </div>
+                                                                </div>
+                                                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Permissions</h6>
+                                                                <div class="row">
+  
+                     <div class="col-md-6">
+						                                                                  
+                                                                
+        <div class="column">
+            <ul>
+                <li th:each="permission, stat : ${permissions}" th:if="${stat.index % 2 == 0}" th:text="${permission.permission}"></li>
+            </ul>
+        </div>
+       
+		 </div>
+<div class="col-md-6">
+	 <div class="column">
+            <ul>
+                <li th:each="permission, stat : ${permissions}" th:if="${stat.index % 2 != 0}" th:text="${permission.permission}"></li>
+            </ul>
+        </div>
+</div>  
+  
+  
+                                                                </div>
+<a href="/changerMotDePasse" style="text-decoration: none; background-color: red;color: white;" class="btn btn-block create-account">Changer mot de passe</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             </div>
+                                                </div>
+                                            </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    </body>
+</html>

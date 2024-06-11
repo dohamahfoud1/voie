@@ -1,6 +1,9 @@
 package com.voie.project.controller;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.voie.project.models.Devise;
 import com.voie.project.repository.DeviseRepository;
-import jakarta.validation.Valid;
 
 
 
@@ -72,6 +74,7 @@ public class DeviseController {
 	        model.addAttribute("devise", devise);
 	        return "editDevise";
 	    }
+	 
 
 	    @PostMapping("/saveDevis")
 	    public String saveDevise(@ModelAttribute("devise") Devise devise) {

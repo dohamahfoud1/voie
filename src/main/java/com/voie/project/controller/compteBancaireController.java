@@ -2,20 +2,23 @@ package com.voie.project.controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.voie.project.models.CompteBancaire;
 import com.voie.project.repository.BanqueRepository;
 import com.voie.project.repository.CompteBancaireRepository;
 
-import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 
 import com.voie.project.models.*;
 
@@ -49,9 +52,17 @@ public class compteBancaireController {
 	
 	  @GetMapping("/listeCompteBancaire")
 	  public String afficherListeSociete(Model model) {
-	        List<CompteBancaire> compteBancaire = compteRepo.findAll();
-	        model.addAttribute("compteBancaire", compteBancaire);
+	        List<CompteBancaire> comptes = compteRepo.findAll();
+	        model.addAttribute("comptes", comptes);
 	        return "listeCompteBancaire";
 	    }
 	
+	  
+	  
+	   @GetMapping("/deleteCompte/{id}")
+	    public String deleteCompte(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+		   compteRepo.deleteById(id);
+	        redirectAttributes.addFlashAttribute("success", "Compte supprimé avec succès.");
+	        return "redirect:/listeCompteBancaire";
+	    }
 }
